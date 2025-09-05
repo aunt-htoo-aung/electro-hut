@@ -1,0 +1,49 @@
+/* 2. NAVBAR STYLING */
+.navbar {
+    background-color: #FFFFFF !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 0.8rem 1rem;
+}
+
+.navbar-brand {
+    color: #4B4A48 !important;
+    /* A sophisticated dark gray */
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.navbar .nav-link-text {
+    color: #2c3e50 !important;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.navbar .nav-link-text:hover {
+    color: #5E5DF0 !important;
+    /* A modern, vibrant purple-blue */
+}
+
+/* Modern underline effect for active/hover links */
+.navbar .nav-link-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #5E5DF0;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar .nav-link-text:hover::after,
+.navbar .nav-link-text.active::after {
+    width: 70%;
+}
+
+.navbar .btn-search {
+    background-color: #5E5DF0;
+    color: white;
+}

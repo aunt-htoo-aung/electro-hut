@@ -1,220 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ElectroHut | AirPods Max</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        background-color: #f9f9f9;
-        font-family: "Segoe UI", sans-serif;
-      }
 
-      .color-swatch {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        border: 2px solid #ccc;
-        cursor: pointer;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElectroHut | AirPods Max</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="Style/details.css">
+</head>
 
-      .color-swatch.active {
-        border: 3px solid #333;
-      }
-      .thumbnail-img {
-        width: 60px;
-        height: 60px;
-        object-fit: cover;
-        border-radius: 8px;
-        cursor: pointer;
-        border: 2px solid transparent;
-        transition: border 0.3s ease;
-      }
+<body>
+  <div class="container py-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="#">Electronics</a></li>
+        <li class="breadcrumb-item"><a href="#">Audio</a></li>
+        <li class="breadcrumb-item"><a href="#">Headphones</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          AirPods Max
+        </li>
+      </ol>
+    </nav>
 
-      .thumbnail-img.active {
-        border: 2px solid #28a745; /* Bright green */
-      }
-
-      .product-price {
-        font-size: 1.4rem;
-        font-weight: 600;
-      }
-
-      .btn-buy {
-        background-color: #075e54;
-        color: white;
-      }
-
-      .btn-buy:hover {
-        background-color: #064d45;
-      }
-
-      .info-box {
-        background-color: #fff;
-        border-radius: 8px;
-        padding: 15px;
-        border: 1px solid #ddd;
-      }
-
-      .breadcrumb a {
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container py-4">
-      <!-- Breadcrumb -->
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb small">
-          <li class="breadcrumb-item"><a href="#">Electronics</a></li>
-          <li class="breadcrumb-item"><a href="#">Audio</a></li>
-          <li class="breadcrumb-item"><a href="#">Headphones</a></li>
-          <li class="breadcrumb-item active" aria-current="page">
-            AirPods Max
-          </li>
-        </ol>
-      </nav>
-
-      <div class="row g-5">
-        <!-- Product Images -->
-        <div class="col-lg-6">
-          <!-- Main Product Image -->
-          <!-- Main Image with fixed size and object-fit -->
-          <div style="width: 100%; max-width: 500px; aspect-ratio: 1/1">
-            <img
-              id="main-product-image"
-              src="Image/AirPodsMax1.png"
-              alt="Product Image"
-              class="img-fluid rounded mb-3"
-              style="width: 100%; height: 100%; object-fit: cover"
-            />
-          </div>
-
-          <!-- Thumbnail Images -->
-          <div class="d-flex gap-2 mt-3" id="thumbnail-container">
-            <img
-              src="Image/AirPodsMax2.png"
-              data-image="Image/AirPodsMax2.png"
-              class="thumbnail-img border rounded p-1 active"
-              style="width: 60px; height: 60px; cursor: pointer"
-            />
-            <img
-              src="Image/AirPodsMax1.png"
-              data-image="Image/AirPodsMax1.png"
-              class="thumbnail-img border rounded p-1"
-              style="width: 60px; height: 60px; cursor: pointer"
-            />
-            <img
-              src="Image/AirPodsMax2.png"
-              data-image="Image/AirPodsMax2.png"
-              class="thumbnail-img border rounded p-1"
-              style="width: 60px; height: 60px; cursor: pointer"
-            />
-          </div>
+    <div class="row g-5">
+      <!-- Product Images -->
+      <div class="col-lg-6">
+        <!-- Main Product Image -->
+        <!-- Main Image with fixed size and object-fit -->
+        <div style="width: 100%; max-width: 500px; aspect-ratio: 1/1">
+          <img id="main-product-image" src="Image/AirPodsMax1.png" alt="Product Image" class="img-fluid rounded mb-3"
+            style="width: 100%; height: 100%; object-fit: cover" />
         </div>
 
-        <!-- Product Details -->
-        <div class="col-lg-6">
-          <h3>AirPods Max</h3>
-          <p class="text-muted mb-2">
-            A perfect balance of exhilarating high-fidelity audio and effortless
-            magic of AirPods.
-          </p>
+        <!-- Thumbnail Images -->
+        <div class="d-flex gap-2 mt-3" id="thumbnail-container">
+          <img src="Image/AirPodsMax2.png" data-image="Image/AirPodsMax2.png"
+            class="thumbnail-img border rounded p-1 active" style="width: 60px; height: 60px; cursor: pointer" />
+          <img src="Image/AirPodsMax1.png" data-image="Image/AirPodsMax1.png" class="thumbnail-img border rounded p-1"
+            style="width: 60px; height: 60px; cursor: pointer" />
+          <img src="Image/AirPodsMax2.png" data-image="Image/AirPodsMax2.png" class="thumbnail-img border rounded p-1"
+            style="width: 60px; height: 60px; cursor: pointer" />
+        </div>
+      </div>
 
-          <p class="text-success small mb-3">
-            <i class="bi bi-star-fill text-warning"></i> 4.8 (121 reviews)
-          </p>
+      <!-- Product Details -->
+      <div class="col-lg-6">
+        <h3>AirPods Max</h3>
+        <p class="text-muted mb-2">
+          A perfect balance of exhilarating high-fidelity audio and effortless
+          magic of AirPods.
+        </p>
 
-          <p class="product-price">
-            $549.00 or <span class="text-muted">$99.99/month</span>
-          </p>
-          <p class="small text-muted">
-            Suggested payments with 6 months special financing
-          </p>
+        <p class="text-success small mb-3">
+          <i class="bi bi-star-fill text-warning"></i> 4.8 (121 reviews)
+        </p>
 
-          <hr />
+        <p class="product-price">
+          $549.00
+        </p>
 
-          <!-- Color Selection -->
-          <h6 class="fw-semibold mb-2">Choose a Color</h6>
-          <div class="d-flex gap-2 mb-3">
-            <div class="color-swatch" style="background-color: #fa8072"></div>
-            <div class="color-swatch" style="background-color: #000"></div>
-            <div class="color-swatch" style="background-color: #e0e0e0"></div>
-            <div class="color-swatch" style="background-color: #cce5cc"></div>
-            <div class="color-swatch" style="background-color: #4666ff"></div>
+
+        <hr />
+
+        <!-- Color Selection -->
+        <h6 class="fw-semibold mb-2">Choose a Color</h6>
+        <div class="d-flex gap-2 mb-3">
+          <div class="color-swatch" style="background-color: #fa8072"></div>
+          <div class="color-swatch" style="background-color: #000"></div>
+          <div class="color-swatch" style="background-color: #e0e0e0"></div>
+          <div class="color-swatch" style="background-color: #cce5cc"></div>
+          <div class="color-swatch" style="background-color: #4666ff"></div>
+        </div>
+
+        <!-- Quantity and Stock -->
+        <div class="d-flex align-items-center mb-3">
+          <div class="input-group" style="width: 120px">
+            <button class="btn btn-outline-secondary" type="button">−</button>
+            <input type="text" class="form-control text-center" value="1" />
+            <button class="btn btn-outline-secondary" type="button">+</button>
           </div>
+          <span class="text-danger small ms-3">Only <strong>12 items</strong> left! Don't miss it</span>
+        </div>
 
-          <!-- Quantity and Stock -->
-          <div class="d-flex align-items-center mb-3">
-            <div class="input-group" style="width: 120px">
-              <button class="btn btn-outline-secondary" type="button">−</button>
-              <input type="text" class="form-control text-center" value="1" />
-              <button class="btn btn-outline-secondary" type="button">+</button>
-            </div>
-            <span class="text-danger small ms-3"
-              >Only <strong>12 items</strong> left! Don't miss it</span
-            >
-          </div>
+        <!-- Buttons -->
+        <div class="d-flex gap-2 mb-4">
+          <button class="btn btn-buy flex-grow-1">Buy Now</button>
+          <button class="btn flex-grow-1 btn-cart">
+            Add to Cart
+          </button>
+        </div>
 
-          <!-- Buttons -->
-          <div class="d-flex gap-2 mb-4">
-            <button class="btn btn-buy flex-grow-1">Buy Now</button>
-            <button class="btn btn-outline-dark flex-grow-1">
-              Add to Cart
-            </button>
-          </div>
-
-          <!-- Delivery Info -->
-          <div class="info-box">
-            <p class="mb-2">
-              <i class="bi bi-truck me-2 text-warning"></i>
-              <strong>Free Delivery</strong>
-            </p>
-            <p class="mb-3 text-muted small">
-              Enter your Postal code for delivery availability
-            </p>
-            <p class="mb-2">
-              <i class="bi bi-arrow-return-left me-2 text-danger"></i>
-              <strong>Return Delivery</strong>
-            </p>
-            <p class="text-muted small mb-0">
-              Free 30 days return. <a href="#">Details</a>
-            </p>
-          </div>
+        <!-- Delivery Info -->
+        <div class="info-box">
+          <p class="mb-2">
+            <i class="bi bi-truck me-2 text-warning"></i>
+            <strong>Free Delivery</strong>
+          </p>
+          <p class="mb-3 text-muted small">
+            Enter your Postal code for delivery availability
+          </p>
+          <p class="mb-2">
+            <i class="bi bi-arrow-return-left me-2 text-danger"></i>
+            <strong>Return Delivery</strong>
+          </p>
+          <p class="text-muted small mb-0">
+            Free 30 days return. <a href="#">Details</a>
+          </p>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const mainImage = document.getElementById("main-product-image");
-        const thumbnails = document.querySelectorAll(".thumbnail-img");
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="Script/script.js"></script>
+</body>
 
-        thumbnails.forEach((thumbnail) => {
-          thumbnail.addEventListener("click", function () {
-            // Change main image
-            const newImage = this.getAttribute("data-image");
-            mainImage.setAttribute("src", newImage);
-
-            // Remove active class from all thumbnails
-            thumbnails.forEach((thumb) =>
-              thumb.classList.remove("active", "border-success")
-            );
-
-            // Add active class to clicked thumbnail
-            this.classList.add("active", "border-success");
-          });
-        });
-      });
-    </script>
-  </body>
 </html>
