@@ -1,234 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>⚡ ElectroHut - Home</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="navbar-style.css" />
+    <link rel="stylesheet" href="details.css" />
+    <style>
+      /* Banner Slider */
+      .banner-slider .carousel-item img {
+        height: 400px;
+        object-fit: cover;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ElectroHut</title>
+      .banner-slider .carousel-caption {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        padding: 15px;
+      }
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="Style/style.css" />
-  <link rel="stylesheet" href="Style/navbar-style.css" />
-</head>
+      .banner-slider .carousel-caption h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #fff;
+      }
 
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid p-2">
-      <a class="navbar-brand ms-5 fs-4 fw-bold" href="#">⚡ ElectroHut</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      .banner-slider .carousel-caption p {
+        font-size: 1.2rem;
+        color: #fff;
+      }
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item ms-3">
-            <a class="nav-link nav-link-text" href="#">Home</a>
-          </li>
-          <li class="nav-item ms-3">
-            <a class="nav-link nav-link-text" href="#">Products</a>
-          </li>
-          <li class="nav-item ms-3">
-            <a class="nav-link nav-link-text" href="#">About</a>
-          </li>
-          <li class="nav-item ms-3">
-            <a class="nav-link nav-link-text" href="#">Contact</a>
-          </li>
-        </ul>
+      .banner-slider .btn {
+        background-color: #5e5df0;
+        color: white;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+      }
 
-        <div class="d-flex align-items-center">
-          <form class="d-none d-lg-flex me-5" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" />
+      .banner-slider .btn:hover {
+        background-color: #303197;
+      }
+
+      /* Promotions Slider */
+      .promotions-slider .carousel-inner {
+        padding: 0 15px;
+      }
+
+      .promotions-slider .carousel-item .row {
+        margin: 0 -10px;
+      }
+
+      .promo-card {
+        background-color: #fff;
+        border: 1px solid #eef2f7;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        margin: 0 10px;
+        text-align: center;
+      }
+
+      .promo-card img {
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .promo-card .card-body {
+        padding: 1rem;
+      }
+
+      .promo-card .btn {
+        background-color: #5e5df0;
+        color: white;
+        border-radius: 8px;
+      }
+
+      .promo-card .btn:hover {
+        background-color: #303197;
+      }
+
+      /* Categories Slider */
+      .categories-slider .carousel-inner {
+        padding: 0 15px;
+      }
+
+      .categories-slider .carousel-item .row {
+        margin: 0 -10px;
+      }
+
+      .category-card {
+        background-color: #fff;
+        border: 1px solid #eef2f7;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 0 10px;
+        text-align: center;
+      }
+
+      .category-card img {
+        height: 120px;
+        object-fit: cover;
+      }
+
+      .category-card .card-body {
+        padding: 1rem;
+      }
+
+      /* Latest Arrivals Slider */
+      .latest-slider .carousel-inner {
+        padding: 0 15px;
+      }
+
+      .latest-slider .carousel-item .row {
+        margin: 0 -10px;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #2c3e50;
+        color: white;
+        padding: 2rem 0;
+        margin-top: 2rem;
+      }
+
+      .footer a {
+        color: #f9f9f9;
+        text-decoration: none;
+        margin: 0 1rem;
+      }
+
+      .footer a:hover {
+        color: #5e5df0;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .banner-slider .carousel-item img {
+          height: 300px;
+        }
+
+        .banner-slider .carousel-caption h1 {
+          font-size: 2rem;
+        }
+
+        .banner-slider .carousel-caption p {
+          font-size: 1rem;
+        }
+
+        .promotions-slider .carousel-item .col-md-4,
+        .categories-slider .carousel-item .col-md-2,
+        .latest-slider .carousel-item .col-md-4 {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .banner-slider .carousel-item img {
+          height: 200px;
+        }
+
+        .banner-slider .carousel-caption h1 {
+          font-size: 1.5rem;
+        }
+
+        .banner-slider .carousel-caption p {
+          font-size: 0.9rem;
+        }
+
+        .promotions-slider .carousel-item .col-md-4,
+        .categories-slider .carousel-item .col-md-2,
+        .latest-slider .carousel-item .col-md-4 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">⚡ ElectroHut</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link-text active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link-text" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link-text" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link-text" href="#">Contact</a>
+            </li>
+          </ul>
+          <form class="d-flex me-3">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
             <button class="btn btn-search" type="submit">Search</button>
           </form>
-
-          <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle pe-3" href="#" role="button" data-bs-toggle="dropdown">
-              <i class="bi bi-person-circle fs-5 me-1"></i>
-              <span class="">Aung</span>
+          <div class="dropdown">
+            <a
+              class="nav-link-text dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Aung
             </a>
-            <ul class="dropdown-menu dropdown-menu-end mt-2">
-              <li>
-                <a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
-              </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container py-5">
-    <!-- Filters -->
-    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
-      <div class="d-flex flex-wrap gap-2">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
-            Category
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Headphones</a></li>
-            <li><a class="dropdown-item" href="#">Speakers</a></li>
-            <li><a class="dropdown-item" href="#">Smartwatches</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
-            Price
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Low to High</a></li>
-            <li><a class="dropdown-item" href="#">High to Low</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
-            Brand
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Sony</a></li>
-            <li><a class="dropdown-item" href="#">Apple</a></li>
-            <li><a class="dropdown-item" href="#">Samsung</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <select class="form-select">
-          <option selected>Sort by</option>
-          <option value="1">Price</option>
-          <option value="2">Rating</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- Title -->
-    <h4 class="mb-4">Latest Electronic Gadgets</h4>
-
-    <!-- Product Grid -->
-    <div class="row g-4">
-      <!-- Product 1 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card product-card h-100 position-relative">
-          <!-- Wishlist Button -->
-          <button class="btn btn-light position-absolute top-0 end-0 m-2 rounded-circle shadow-sm wishlist-btn">
-            <i class="bi bi-heart"></i>
-          </button>
-
-          <!-- Product Image -->
-          <img src="Image/AirPodsMax1.png" alt="Smart Speaker" class="card-img-top" />
-
-          <div class="card-body">
-            <h6 class="card-title">Smart Bluetooth Speaker</h6>
-            <p class="text-muted small mb-1">Voice assistant enabled</p>
-            <p class="fw-bold text-dark">$129.00</p>
-            <p class="text-success small">
-              <i class="bi bi-star-fill text-warning"></i> 4.7 (201)
-            </p>
-            <button class="btn btn-outline-dark w-100">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card product-card h-100">
-          <button class="btn btn-light position-absolute top-0 end-0 m-2 rounded-circle shadow-sm wishlist-btn">
-            <i class="bi bi-heart"></i>
-          </button>
-          <img src="Image/AirPodsMax1.png" alt="Headphones" class="card-img-top" />
-          <div class="card-body">
-            <h6 class="card-title">Wireless Over-Ear Headphones</h6>
-            <p class="text-muted small mb-1">
-              Noise cancelling, 30hr battery
-            </p>
-            <p class="fw-bold text-dark">$199.00</p>
-            <p class="text-success small">
-              <i class="bi bi-star-fill text-warning"></i> 4.8 (345)
-            </p>
-            <button class="btn btn-outline-dark w-100">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card product-card h-100">
-          <button class="btn btn-light position-absolute top-0 end-0 m-2 rounded-circle shadow-sm wishlist-btn">
-            <i class="bi bi-heart"></i>
-          </button>
-          <img src="Image/AirPodsMax1.png" alt="Smartwatch" class="card-img-top" />
-          <div class="card-body">
-            <h6 class="card-title">Smart Fitness Watch</h6>
-            <p class="text-muted small mb-1">
-              Heart rate, GPS, water resistant
-            </p>
-            <p class="fw-bold text-dark">$149.00</p>
-            <p class="text-success small">
-              <i class="bi bi-star-fill text-warning"></i> 4.6 (167)
-            </p>
-            <button class="btn btn-outline-dark w-100">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card product-card h-100">
-          <button class="btn btn-light position-absolute top-0 end-0 m-2 rounded-circle shadow-sm wishlist-btn">
-            <i class="bi bi-heart"></i>
-          </button>
-          <img src="Image/AirPodsMax1.png" alt="Earbuds" class="card-img-top" />
-          <div class="card-body">
-            <h6 class="card-title">Wireless Earbuds Pro</h6>
-            <p class="text-muted small mb-1">IPX7, ANC, wireless charging</p>
-            <p class="fw-bold text-dark">$89.00</p>
-            <p class="text-success small">
-              <i class="bi bi-star-fill text-warning"></i> 4.4 (221)
-            </p>
-            <button class="btn btn-outline-dark w-100">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Pagination -->
-    <nav aria-label="Product pagination">
-      <ul class="pagination justify-content-start mt-4">
-        <li class="page-item disabled">
-          <a class="page-link me-2" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-        </li>
-        <li class="page-item active" aria-current="page">
-          <a class="page-link me-2" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link me-2" href="#">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link me-2" href="#">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link me-2" href="#">Next</a>
-        </li>
-      </ul>
     </nav>
-  </div>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- Banner Slider -->
+    <section class="banner-slider">
+      <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://via.placeholder.com/1200x400?text=Banner+1"
+              class="d-block w-100"
+              alt="Banner 1"
+            />
+            <div class="carousel-caption">
+              <h1>Discover New Gadgets</h1>
+              <p>Shop the latest electronics now!</p>
+              <a href="#" class="btn">Shop Now</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://via.placeholder.com/1200x400?text=Banner+2"
+              class="d-block w-100"
+              alt="Banner 2"
+            />
+            <div class="carousel-caption">
+              <h1>Exclusive Deals</h1>
+              <p>Save big on top brands!</p>
+              <a href="#" class="btn">Shop Now</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://via.placeholder.com/1200x400?text=Banner+3"
+              class="d-block w-100"
+              alt="Banner 3"
+            />
+            <div class="carousel-caption">
+              <h1>Upgrade Your Tech</h1>
+              <p>Explore smart devices today!</p>
+              <a href="#" class="btn">Shop Now</a>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#bannerCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#bannerCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
 
+    <!-- Promotions Slider -->
+    <section class="promotions-slider container my-4">
+      <h4>Hot Promotions</h4>
+      <div
+        id="promotionsCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="promo-card">
+                  <img
+                    src="https://via.placeholder.com/400x150?text=Promo+1"
+                    class="img-fluid"
+                    alt="Promo 1"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">50% Off Headphones</h5>
+                    <p class="card-text">Limited time offer!</p>
+                    <a href="#" class="btn">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="promo-card">
+                  <img
+                    src="https://via.placeholder.com/400x150?text=Promo+2"
+                    class="img-fluid"
+                    alt="Promo 2"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Buy 1 Get 1 Free</h5>
+                    <p class="card-text">On select speakers!</p>
+                    <a href="#" class="btn">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="promo-card">
+                  <img
+                    src="https://via.placeholder.com/400x150?text=Promo+3"
+                    class="img-fluid"
+                    alt="Promo 3"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Smartwatch Deals</h5>
+                    <p class="card-text">Save up to 30%!</p>
+                    <a href="#" class="btn">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="promo-card">
+                  <img
+                    src="https://via.placeholder.com/400x150?text=Promo+4"
+                    class="img-fluid"
+                    alt="Promo 4"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Earbuds Sale</h5>
+                    <p class="card-text">Get 20% off!</p>
+                    <a href="#" class="btn">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="promo-card">
+                  <img
+                    src="https://via.placeholder.com/400x150?text=Promo+5"
+                    class="img-fluid"
+                    alt="Promo 5"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Free Shipping</h5>
+                    <p class="card-text">On orders over $100!</p>
+                    <a href="#" class="btn">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="promo-card">
+                  <img
+                    src="https://via.placeholder.com/400x150?text=Promo+6"
+                    class="img-fluid"
+                    alt="Promo 6"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Bundle Offers</h5>
+                    <p class="card-text">Save on combos!</p>
+                    <a href="#" class="btn">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#promotionsCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#promotionsCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Categories Slider -->
+    <section class="categories-slider container my-4">
+      <h4>Shop by Category</h4>
+      <div
+        id="categoriesCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Headphones"
+                    class="img-fluid"
+                    alt="Headphones"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Headphones</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Speakers"
+                    class="img-fluid"
+                    alt="Speakers"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Speakers</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Smartwatches"
+                    class="img-fluid"
+                    alt="Smartwatches"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Smartwatches</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Earbuds"
+                    class="img-fluid"
+                    alt="Earbuds"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Earbuds</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Accessories"
+                    class="img-fluid"
+                    alt="Accessories"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Accessories</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Chargers"
+                    class="img-fluid"
+                    alt="Chargers"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Chargers</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Cables"
+                    class="img-fluid"
+                    alt="Cables"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Cables</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Smartphones"
+                    class="img-fluid"
+                    alt="Smartphones"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Smartphones</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Tablets"
+                    class="img-fluid"
+                    alt="Tablets"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Tablets</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="category-card">
+                  <img
+                    src="https://via.placeholder.com/200x120?text=Cases"
+                    class="img-fluid"
+                    alt="Cases"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Cases</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#categoriesCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#categoriesCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Latest Arrivals Slider -->
+    <section class="latest-slider container my-4">
+      <h4>Latest Arrivals</h4>
+      <div id="latestCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="product-card">
+                  <img
+                    src="https://via.placeholder.com/300x220?text=AirPods+Max"
+                    class="img-fluid"
+                    alt="AirPods Max"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">AirPods Max</h5>
+                    <p class="card-text">High-fidelity audio, ANC</p>
+                    <p class="product-price">$549.00</p>
+                    <p class="card-text">
+                      <small class="text-muted">4.8 (121 reviews)</small>
+                    </p>
+                    <button class="btn btn-outline-dark btn-cart">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="product-card">
+                  <img
+                    src="https://via.placeholder.com/300x220?text=Smart+Speaker"
+                    class="img-fluid"
+                    alt="Smart Bluetooth Speaker"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Smart Bluetooth Speaker</h5>
+                    <p class="card-text">Voice assistant enabled</p>
+                    <p class="product-price">$129.00</p>
+                    <p class="card-text">
+                      <small class="text-muted">4.7 (201 reviews)</small>
+                    </p>
+                    <button class="btn btn-outline-dark btn-cart">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="product-card">
+                  <img
+                    src="https://via.placeholder.com/300x220?text=Smart+Watch"
+                    class="img-fluid"
+                    alt="Smart Fitness Watch"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Smart Fitness Watch</h5>
+                    <p class="card-text">Heart rate, GPS, water resistant</p>
+                    <p class="product-price">$149.00</p>
+                    <p class="card-text">
+                      <small class="text-muted">4.6 (167 reviews)</small>
+                    </p>
+                    <button class="btn btn-outline-dark btn-cart">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="product-card">
+                  <img
+                    src="https://via.placeholder.com/300x220?text=Earbuds+Pro"
+                    class="img-fluid"
+                    alt="Wireless Earbuds Pro"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Wireless Earbuds Pro</h5>
+                    <p class="card-text">IPX7, ANC, wireless charging</p>
+                    <p class="product-price">$89.00</p>
+                    <p class="card-text">
+                      <small class="text-muted">4.4 (221 reviews)</small>
+                    </p>
+                    <button class="btn btn-outline-dark btn-cart">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="product-card">
+                  <img
+                    src="https://via.placeholder.com/300x220?text=Wireless+Charger"
+                    class="img-fluid"
+                    alt="Wireless Charger"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Wireless Charger</h5>
+                    <p class="card-text">Fast charging, compact design</p>
+                    <p class="product-price">$39.00</p>
+                    <p class="card-text">
+                      <small class="text-muted">4.5 (89 reviews)</small>
+                    </p>
+                    <button class="btn btn-outline-dark btn-cart">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="product-card">
+                  <img
+                    src="https://via.placeholder.com/300x220?text=Smart+Home+Hub"
+                    class="img-fluid"
+                    alt="Smart Home Hub"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Smart Home Hub</h5>
+                    <p class="card-text">Control your smart devices</p>
+                    <p class="product-price">$99.00</p>
+                    <p class="card-text">
+                      <small class="text-muted">4.3 (145 reviews)</small>
+                    </p>
+                    <button class="btn btn-outline-dark btn-cart">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#latestCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#latestCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container text-center">
+        <p>&copy; 2025 ElectroHut. All rights reserved.</p>
+        <div>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Basic interactivity for Add to Cart buttons
+      document.querySelectorAll(".btn-cart").forEach((button) => {
+        button.addEventListener("click", () => {
+          alert("Added to cart!");
+        });
+      });
+    </script>
+  </body>
 </html>
