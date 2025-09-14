@@ -17,38 +17,68 @@
   </head>
   <body>
     <div class="container">
-      <h5>Product Details</h5>
+      <h5>Add New Product</h5>
       <div class="card product-detail-card">
         <div class="card-body">
           <form>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-8">
                 <div class="mb-3">
                   <label class="form-label" for="productName">Product</label>
                   <input class="form-control" type="text" id="productName" />
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="inputUsername">Username</label>
+                  <label class="form-label" for="description"
+                    >Description</label
+                  >
                   <textarea
                     class="form-control"
-                    id="inputUsername"
+                    id="description"
                     rows="5"
                   ></textarea>
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="category">Category</label>
-                  <input class="form-control" type="text" id="category" />
+                  <select class="form-select" id="category">
+                    <option selected>Select Category</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="brand">Brand</label>
-                  <input class="form-control" type="text" id="brand" />
+                  <select class="form-select" id="brand">
+                    <option selected>Select Brand</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="price">Price</label>
                   <input class="form-control" type="text" id="price" />
                 </div>
+                <div class="mb-3">
+                  <label class="form-label" for="stock-amount"
+                    >Stock Amount</label
+                  >
+                  <input class="form-control" type="number" id="stock-amount" />
+                </div>
               </div>
-              <div class="col-lg-6"></div>
+              <div class="col-lg-4 text-center">
+                <div class="image-view h-50">
+                  <img
+                    src="../Image/default-image.png"
+                    class="img-fluid h-100"
+                    alt="..."
+                  />
+                </div>
+                <label for="upload-image " class="btn btn-outline-dark">
+                  Upload Image
+                </label>
+                <input type="file" name="" id="upload-image" class="d-none" />
+              </div>
               <div class="group d-flex gap-3 col-lg-4 ms-auto">
                 <input
                   type="submit"
