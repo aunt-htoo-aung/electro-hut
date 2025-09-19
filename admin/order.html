@@ -37,7 +37,6 @@
           class="d-flex flex-column flex-shrink-0 p-3 bg-light offcanvas offcanvas-start d-lg-none"
           tabindex="-1"
           id="sidebarMenu"
-          style="width: 280px"
         >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title">⚡ ElectroHut</h5>
@@ -106,8 +105,8 @@
         </div>
 
         <div
-          class="d-none d-lg-flex flex-column flex-shrink-0 p-3 bg-light shadow"
-          style="width: 280px; min-height: 100vh; position: sticky; top: 0"
+          class="d-none d-lg-flex flex-column flex-shrink-0 p-3 bg-light shadow col-lg-2"
+          style="min-height: 100vh; position: sticky; top: 0"
         >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title">⚡ ElectroHut</h5>
@@ -169,76 +168,57 @@
           </div>
         </div>
         <!-- Main Content -->
-        <div class="col-12 col-lg-9 p-4">
-          <div class="container">
-            <h5>Product</h5>
-            <div class="btn btn-outline-dark my-3">
-              <a href="add-product.html" class="nav-link">Add New Product</a>
-            </div>
+        <div class="col-12 col-lg-10 p-4">
+          <div class="container-fluid">
+            <h5>Order</h5>
+
             <div class="card">
               <div class="card-body">
-                <table class="table">
+                <table class="table table-hover">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Product Name</th>
-                      <th scope="col">Category</th>
-                      <th scope="col">Brand</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Stock Amount</th>
-                      <th scope="col">Image</th>
+                      <th scope="col">Order ID</th>
+                      <th scope="col">User ID</th>
+                      <th scope="col">Order Date</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Total Amount</th>
+                      <th scope="col">Item Count</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
-                      <td>Airpod 1</td>
-                      <td>Airpod</td>
-                      <td>Apple</td>
-                      <td>1,100,203,302 MMK</td>
-                      <td>100</td>
-                      <td>
-                        <img
-                          src="../Image/AirPodsMax1.png"
-                          style="max-width: 100px; max-height: 100px"
-                          alt=""
-                        />
-                      </td>
+                      <td>101</td>
+                      <td>50</td>
+                      <td>2025-09-15</td>
+                      <td>Shipped</td>
+                      <td>$120.50</td>
+                      <td>3</td>
                     </tr>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Airpod 1</td>
-                      <td>Airpod</td>
-                      <td>Apple</td>
-                      <td>1,100,203,302 MMK</td>
-                      <td>100</td>
-                      <td>
-                        <img
-                          src="../Image/AirPodsMax1.png"
-                          style="max-width: 100px; max-height: 100px"
-                          alt=""
-                        />
-                      </td>
+                      <th scope="row">2</th>
+                      <td>102</td>
+                      <td>51</td>
+                      <td>2025-09-14</td>
+                      <td>Pending</td>
+                      <td>$75.00</td>
+                      <td>2</td>
                     </tr>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Airpod 1</td>
-                      <td>Airpod</td>
-                      <td>Apple</td>
-                      <td>1,100,203,302 MMK</td>
-                      <td>100</td>
-                      <td>
-                        <img
-                          src="../Image/AirPodsMax1.png"
-                          style="max-width: 100px; max-height: 100px"
-                          alt=""
-                        />
-                      </td>
+                      <th scope="row">3</th>
+                      <td>103</td>
+                      <td>50</td>
+                      <td>2025-09-10</td>
+                      <td>Completed</td>
+                      <td>$250.00</td>
+                      <td>5</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
+            <hr />
           </div>
         </div>
       </div>
