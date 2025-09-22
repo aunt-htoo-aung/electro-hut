@@ -1,0 +1,246 @@
+<?php
+require_once '../../electro-hut-backend/product.php'
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElectroHut</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="Style/side-bar.css" />
+  <link rel="stylesheet" href="Style/product.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar Toggle Button (visible only on small screens) -->
+      <div class="d-lg-none p-3 shadow">
+        <button
+          class="btn btn-outline-primary"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarMenu">
+          <i class="bi bi-list"></i> Menu
+        </button>
+      </div>
+
+      <div
+        class="d-flex flex-column flex-shrink-0 p-3 bg-light offcanvas offcanvas-start d-lg-none"
+        tabindex="-1"
+        id="sidebarMenu"
+        style="width: 280px">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">⚡ ElectroHut</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <hr />
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="dashboard.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="product.html">Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="order.html">Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="user.html">User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="admin.html">Admin Control</a>
+          </li>
+        </ul>
+
+        <div class="nav-item dropdown mt-auto ms-3">
+          <hr />
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle fs-5 me-1"></i>
+            <span>Aung (Admin)</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="d-none d-lg-flex flex-column flex-shrink-0 p-3 bg-light shadow"
+        style="width: 280px; max-height: 100vh; position: sticky; top: 0">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">⚡ ElectroHut</h5>
+        </div>
+        <hr />
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="dashboard.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="product.html">Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="order.html">Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="user.html">User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="admin.html">Admin Control</a>
+          </li>
+        </ul>
+
+        <div class="nav-item dropdown mt-auto ms-3">
+          <hr />
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle fs-5 me-1"></i>
+            <span>Aung (Admin)</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Main Content -->
+      <div class="col-12 col-lg-9 p-4">
+        <div class="container">
+          <h5>Add New Product</h5>
+          <div class="card product-detail-card m-lg-3">
+            <div class="card-body">
+              <form method="post" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <div class="mb-3">
+                      <label class="form-label" for="productName">Product</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="productName"
+                        name="product_name" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="description">Description</label>
+                      <textarea
+                        class="form-control"
+                        id="description"
+                        rows="5"
+                        name="description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="category">Category</label>
+                      <select class="form-select" id="category" name="category">
+                        <option selected>Select Category</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="brand">Brand</label>
+                      <select class="form-select" id="brand" name="brand">
+                        <option selected>Select Brand</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="price">Price</label>
+                      <input class="form-control" type="text" id="price" name="price" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="stock-amount">Stock Amount</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        id="stock-amount" name="stock_amount" />
+                    </div>
+                  </div>
+                  <div class="col-lg-4 text-center">
+                    <div class="image-view h-50">
+                      <img
+                        src="../Image/default-image.png"
+                        class="img-fluid h-100"
+                        alt="..." />
+                    </div>
+                    <label for="upload-image" class="upload-box w-100">
+                      <div class="text-muted fw-semibold">
+                        Drag an image here or
+                        <span class="text-primary">upload a file</span>
+                      </div>
+                      <input
+                        type="file"
+                        id="upload-image"
+                        accept="image/*"
+                        name="image_urls[]"
+                        multiple />
+                    </label>
+                  </div>
+                  <div class="group d-flex gap-3 col-lg-4 ms-auto">
+                    <input
+                      type="submit"
+                      class="btn btn-success w-50"
+                      value="Submit"
+                      name="add_product" />
+                    <input
+                      type="submit"
+                      class="btn btn-danger w-50"
+                      value="Cancel" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
