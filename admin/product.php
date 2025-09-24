@@ -28,7 +28,7 @@
           <div class="btn btn-outline-dark my-3">
             <a href="add-product.php" class="nav-link">Add New Product</a>
           </div>
-          <div class="card">
+          <div class="card w-100">
             <div class="card-body">
               <table class="table">
                 <thead>
@@ -57,6 +57,13 @@
                             src="../<?= $product['primary_image_url'] ?>"
                             style="max-width: 100px; max-height: 100px"
                             alt="" />
+                        </td>
+                        <td>
+                          <a class='btn btn-primary btn-sm w-100 m-1' href='edit_product.php?id=<?= $product['product_id'] ?>'>Edit</a>
+                          <!-- <form method="post">
+                            <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+                            <button class='btn btn-danger btn-sm w-100 m-1' name="delete_product">Delete</button>
+                          </form> -->
                         </td>
                       </tr>
                   <?php }

@@ -80,9 +80,12 @@ require_once '../electro-hut-backend/product.php';
     <div class="row g-4">
       <!-- Product 1 -->
       <?php if (isset($products)) {
+        $wishlist_product_ids = array_column($wishlists, 'product_id');
         foreach ($products as $product) {
           $product_id = $product['product_id'];
-          $is_in_wishlist =  check_wishlist($user_id, $product_id, $conn);
+          // $is_in_wishlist =  check_wishlist($user_id, $product_id);
+
+          $is_in_wishlist = in_array($product_id, $wishlist_product_ids);
       ?>
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card product-card h-100 position-relative">
@@ -90,7 +93,8 @@ require_once '../electro-hut-backend/product.php';
                 <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
                 <!-- Wishlist Button -->
                 <button
-                  class="btn <?php $wishlist_class = $is_in_wishlist ? 'btn-danger' : 'btn-light'; ?> position-absolute top-0 end-0 m-2 rounded-circle shadow-sm wishlist-btn" name="addWishlist">
+                  class="btn <?= $is_in_wishlist ? 'btn-danger' : 'btn-light'; ?> position-absolute top-0 end-0 m-2 rounded-circle shadow-sm wishlist-btn"
+                  name="addWishlist">
                   <i class="bi bi-heart"></i>
                 </button>
 
