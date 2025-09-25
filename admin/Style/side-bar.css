@@ -2,3 +2,9 @@
     color: white;
     background-color: #5E5DF0;
 }
+
+.nav-item{
+    padding: 5px 0;
+    font-size: 18px;
+}
+

@@ -75,7 +75,10 @@
                             $total_amount += $cart['price'] * $cart['quantity'] ?></h6>
                         </div>
                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                          <a href="#" class="text-danger"><i class="bi bi-trash3-fill"></i></a>
+                          <form action="" method="post">
+                            <input type="hidden" name="product_id" value="<?= $cart['product_id'] ?>">
+                            <button class="text-danger border-0" name="deleteCart"><i class="bi bi-trash3-fill"></i></button>
+                          </form>
                         </div>
                       </div>
 
@@ -103,7 +106,7 @@
                     <h5><?= $total_amount ?></h5>
                   </div>
                   <hr class="my-4" />
-                  <a href="#" class="btn btn-dark float-end">Checkout</a>
+                  <a href="checkout.php" class="btn btn-dark float-end">Checkout</a>
                 </div>
               </div>
             </div>

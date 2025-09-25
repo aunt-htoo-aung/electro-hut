@@ -79,6 +79,9 @@
                              <a class="dropdown-item" href="wishlist.php"><i class="bi bi-heart me-2"></i>Wishlist</a>
                          </li>
                          <li>
+                             <a class="dropdown-item" href="order.php"><i class="bi bi-list me-2"></i>Orders</a>
+                         </li>
+                         <li>
                              <hr class="dropdown-divider" />
                          </li>
                          <li>

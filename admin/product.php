@@ -22,7 +22,7 @@
     <div class="row">
       <?php include 'side-bar.php' ?>
       <!-- Main Content -->
-      <div class="col-12 col-lg-9 p-4">
+      <div class="col-12 col-lg-9 p-4 vh-100">
         <div class="container">
           <h5>Product</h5>
           <div class="btn btn-outline-dark my-3">

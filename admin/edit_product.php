@@ -38,7 +38,7 @@ require_once '../../electro-hut-backend/product.php'
                         class="form-control"
                         type="text"
                         id="productName"
-                        name="product_name" value="<?= $edit_product['product_name'] ?>" />
+                        name="product_name" value="<?= $product_detail['product_name'] ?>" />
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="description">Description</label>
@@ -46,7 +46,7 @@ require_once '../../electro-hut-backend/product.php'
                         class="form-control"
                         id="description"
                         rows="5"
-                        name="description"><?= $edit_product['description'] ?></textarea>
+                        name="description"><?= $product_detail['description'] ?></textarea>
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="category">Category</label>
@@ -68,20 +68,20 @@ require_once '../../electro-hut-backend/product.php'
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="price">Price</label>
-                      <input class="form-control" type="text" id="price" name="price" value="<?= $edit_product['price'] ?>" />
+                      <input class="form-control" type="text" id="price" name="price" value="<?= $product_detail['price'] ?>" />
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="stock-amount">Stock Amount</label>
                       <input
                         class="form-control"
                         type="number"
-                        id="stock-amount" name="stock_amount" value="<?= $edit_product['stock_qty'] ?>" />
+                        id="stock-amount" name="stock_amount" value="<?= $product_detail['stock_qty'] ?>" />
                     </div>
                   </div>
                   <div class="col-lg-4 text-center">
                     <div class="image-view h-50">
                       <img
-                        src="../<?= $edit_product['primary_image_url'] ?>"
+                        src="../<?= $product_detail['primary_image_url'] ?>"
                         class="img-fluid h-100"
                         alt="..." />
                     </div>

@@ -64,13 +64,6 @@ require_once '../electro-hut-backend/product.php';
         </div>
       </div>
 
-      <div>
-        <select class="form-select">
-          <option selected>Sort by</option>
-          <option value="1">Price</option>
-          <option value="2">Rating</option>
-        </select>
-      </div>
     </div>
 
     <!-- Title -->
@@ -88,63 +81,67 @@ require_once '../electro-hut-backend/product.php';
           $is_in_wishlist = in_array($product_id, $wishlist_product_ids);
       ?>
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="card product-card h-100 position-relative">
-              <form method="post">
-                <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
-                <!-- Wishlist Button -->
-                <button
-                  class="btn <?= $is_in_wishlist ? 'btn-danger' : 'btn-light'; ?> position-absolute top-0 end-0 m-2 rounded-circle shadow-sm wishlist-btn"
-                  name="addWishlist">
-                  <i class="bi bi-heart"></i>
-                </button>
+            <a href="details.php?id=<?= $product['product_id'] ?>" style="text-decoration:none;">
+              <div class="card product-card h-100 position-relative">
+                <form method="post">
+                  <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+                  <!-- Wishlist Button -->
+                  <button
+                    class="btn <?= $is_in_wishlist ? 'btn-danger' : 'btn-light'; ?> position-absolute top-0 end-0 m-2 rounded-circle shadow-sm wishlist-btn"
+                    name="addWishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
 
-                <!-- Product Image -->
-                <img
-                  src="<?= $product['primary_image_url'] ?>"
-                  class="card-img-top" />
+                  <!-- Product Image -->
+                  <img
+                    src="<?= $product['primary_image_url'] ?>"
+                    class="card-img-top" />
 
-                <div class="card-body">
-                  <h6 class="card-title"><?= $product['product_name'] ?></h6>
-                  <p class="text-muted small mb-1">Brand : <?= $product['brand_name'] ?></p>
-                  <p class="text-muted small mb-1">Category : <?= $product['category_name'] ?></p>
-                  <p class="fw-bold text-dark"><?= $product['price'] ?></p>
-                  <p class="text-success small">
-                    <i class="bi bi-box-fill text-success"></i> <?= $product['stock_qty'] ?>
-                  </p>
+                  <div class="card-body">
+                    <h6 class="card-title"><?= $product['product_name'] ?></h6>
+                    <p class="text-muted small mb-1">Brand : <?= $product['brand_name'] ?></p>
+                    <p class="text-muted small mb-1">Category : <?= $product['category_name'] ?></p>
+                    <p class="fw-bold text-dark"><?= $product['price'] ?></p>
+                    <p class="text-success small">
+                      <i class="bi bi-box-fill text-success"></i> <?= $product['stock_qty'] ?>
+                    </p>
 
-                  <button class="btn btn-outline-dark w-100" name="addToCart">Add to Cart</button>
-              </form>
-            </div>
+                    <button class="btn btn-outline-dark w-100" name="addToCart">Add to Cart</button>
+                  </div>
+                </form>
+              </div>
+            </a>
           </div>
-    </div>
-<?php  }
+      <?php  }
       } ?>
+    </div>
 
-  </div>
-  <!-- Pagination -->
-  <nav aria-label="Product pagination">
-    <ul class="pagination justify-content-start mt-4">
-      <li class="page-item disabled">
-        <a
-          class="page-link me-2"
-          href="#"
-          tabindex="-1"
-          aria-disabled="true">Previous</a>
-      </li>
-      <li class="page-item active" aria-current="page">
-        <a class="page-link me-2" href="#">1</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link me-2" href="#">2</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link me-2" href="#">3</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link me-2" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
+
+
+    <!-- Pagination -->
+    <!-- <nav aria-label="Product pagination">
+      <ul class="pagination justify-content-start mt-4">
+        <li class="page-item disabled">
+          <a
+            class="page-link me-2"
+            href="#"
+            tabindex="-1"
+            aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link me-2" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link me-2" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link me-2" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link me-2" href="#">Next</a>
+        </li>
+      </ul>
+    </nav> -->
   </div>
 
   <!-- Bootstrap JS Bundle -->

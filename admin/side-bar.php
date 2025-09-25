@@ -16,7 +16,7 @@
     id="sidebarMenu"
     style="width: 280px">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title">⚡ ElectroHut</h5>
+        <h3 class="offcanvas-title">⚡ ElectroHut</h3>
         <button
             type="button"
             class="btn-close"
@@ -73,7 +73,7 @@
     class="d-none d-lg-flex flex-column flex-shrink-0 p-3 bg-light shadow"
     style="width: 280px; max-height: 100vh; position: sticky; top: 0">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title">⚡ ElectroHut</h5>
+        <h3 class="offcanvas-title">⚡ ElectroHut</h3>
     </div>
     <hr />
     <ul class="nav nav-pills flex-column mb-auto">
