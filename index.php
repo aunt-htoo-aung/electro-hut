@@ -1,3 +1,6 @@
+<?php
+require_once '../electro-hut-backend/product.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +32,7 @@
           <div class="carousel-caption">
             <h1>Discover New Gadgets</h1>
             <p>Shop the latest electronics now!</p>
-            <a href="#" class="btn">Shop Now</a>
+            <a href="product.php" class="btn">Shop Now</a>
           </div>
         </div>
         <div class="carousel-item">
@@ -40,7 +43,7 @@
           <div class="carousel-caption">
             <h1>Exclusive Deals</h1>
             <p>Save big on top brands!</p>
-            <a href="#" class="btn">Shop Now</a>
+            <a href="product.php" class="btn">Shop Now</a>
           </div>
         </div>
         <div class="carousel-item">
@@ -48,7 +51,7 @@
           <div class="carousel-caption">
             <h1>Upgrade Your Tech</h1>
             <p>Explore smart devices today!</p>
-            <a href="#" class="btn">Shop Now</a>
+            <a href="product.php" class="btn">Shop Now</a>
           </div>
         </div>
       </div>
@@ -90,7 +93,7 @@
                 <div class="card-body">
                   <h5 class="card-title">50% Off Headphones</h5>
                   <p class="card-text">Limited time offer!</p>
-                  <a href="#" class="btn">Shop Now</a>
+                  <a href="product.php" class="btn">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -103,7 +106,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Buy 1 Get 1 Free</h5>
                   <p class="card-text">On select speakers!</p>
-                  <a href="#" class="btn">Shop Now</a>
+                  <a href="product.php" class="btn">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -116,7 +119,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Smartwatch Deals</h5>
                   <p class="card-text">Save up to 30%!</p>
-                  <a href="#" class="btn">Shop Now</a>
+                  <a href="product.php" class="btn">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -133,7 +136,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Earbuds Sale</h5>
                   <p class="card-text">Get 20% off!</p>
-                  <a href="#" class="btn">Shop Now</a>
+                  <a href="product.php" class="btn">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -146,7 +149,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Free Shipping</h5>
                   <p class="card-text">On orders over $100!</p>
-                  <a href="#" class="btn">Shop Now</a>
+                  <a href="product.php" class="btn">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -159,7 +162,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Bundle Offers</h5>
                   <p class="card-text">Save on combos!</p>
-                  <a href="#" class="btn">Shop Now</a>
+                  <a href="product.php" class="btn">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -188,287 +191,121 @@
   <!-- Categories Slider -->
   <section class="categories-slider container my-4">
     <h4>Shop by Category</h4>
-    <div
-      id="categoriesCarousel"
-      class="carousel slide"
-      data-bs-ride="carousel">
+    <div id="categoriesCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="category-card">
-                <img
-                  src="Image/banner1.png"
-                  class="img-fluid"
-                  alt="Headphones" />
-                <div class="card-body">
-                  <h5 class="card-title">Headphones</h5>
+        <?php
+        if (isset($categories) && count($categories) > 0) {
+          $chunks = array_chunk($categories, 5); // 5 categories per slide
+          foreach ($chunks as $index => $chunk) {
+            $activeClass = ($index === 0) ? 'active' : '';
+        ?>
+            <div class="carousel-item <?= $activeClass ?>">
+              <div class="d-flex align-items-center">
+                <!-- Prev button -->
+                <button
+                  class="btn"
+                  type="button"
+                  data-bs-target="#categoriesCarousel"
+                  data-bs-slide="prev"
+                  style="min-width: 40px; height: 100%;">
+                  <span class="carousel-control-prev-icon" style="filter: invert(1);" aria-hidden="true"></span>
+                </button>
+
+                <!-- Category cards -->
+                <div class="row flex-grow-1">
+                  <?php foreach ($chunk as $category) { ?>
+                    <div class="col-md-2">
+                      <div class="category-card card">
+                        <img
+                          src="<?= htmlspecialchars($category['image_url'] ?? 'Image/banner1.png') ?>"
+                          class="img-fluid"
+                          alt="<?= htmlspecialchars($category['category_name']) ?>" />
+                        <div class="card-body p-2">
+                          <h5 class="card-title small mb-0"><?= htmlspecialchars($category['category_name']) ?></h5>
+                        </div>
+                      </div>
+                    </div>
+                  <?php } ?>
                 </div>
+
+                <!-- Next button -->
+                <button
+                  class="btn"
+                  type="button"
+                  data-bs-target="#categoriesCarousel"
+                  data-bs-slide="next"
+                  style="min-width: 40px; height: 100%;">
+                  <span class="carousel-control-next-icon" style="filter: invert(1);" aria-hidden="true"></span>
+                </button>
               </div>
             </div>
-            <div class="col-md-2">
-              <div class="category-card">
-                <img
-                  src="Image/banner1.png"
-                  class="img-fluid"
-                  alt="Speakers" />
-                <div class="card-body">
-                  <h5 class="card-title">Speakers</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="category-card">
-                <img
-                  src="Image/banner1.png"
-                  class="img-fluid"
-                  alt="Smartwatches" />
-                <div class="card-body">
-                  <h5 class="card-title">Smartwatches</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="category-card">
-                <img
-                  src="Image/banner1.png"
-                  class="img-fluid"
-                  alt="Earbuds" />
-                <div class="card-body">
-                  <h5 class="card-title">Earbuds</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="category-card">
-                <img
-                  src="Image/banner1.png"
-                  class="img-fluid"
-                  alt="Accessories" />
-                <div class="card-body">
-                  <h5 class="card-title">Accessories</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="category-card">
-                <img
-                  src="Image/banner1.png"
-                  class="img-fluid"
-                  alt="Chargers" />
-                <div class="card-body">
-                  <h5 class="card-title">Chargers</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="category-card">
-                <img src="Image/banner1.png" class="img-fluid" alt="Cables" />
-                <div class="card-body">
-                  <h5 class="card-title">Cables</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="category-card">
-                <img
-                  src="Image/banner1.png"
-                  class="img-fluid"
-                  alt="Smartphones" />
-                <div class="card-body">
-                  <h5 class="card-title">Smartphones</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="category-card">
-                <img
-                  src="Image/banner1.png"
-                  class="img-fluid"
-                  alt="Tablets" />
-                <div class="card-body">
-                  <h5 class="card-title">Tablets</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="category-card">
-                <img src="Image/banner1.png" class="img-fluid" alt="Cases" />
-                <div class="card-body">
-                  <h5 class="card-title">Cases</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php
+          }
+        }
+        ?>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#categoriesCarousel"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#categoriesCarousel"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </section>
+
 
   <!-- Latest Arrivals Slider -->
   <section class="latest-slider container my-4">
     <h4>Latest Arrivals</h4>
     <div id="latestCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="product-card card">
-                <img
-                  src="https://via.placeholder.com/300x220?text=AirPods+Max"
-                  class="img-fluid"
-                  alt="AirPods Max" />
-                <div class="card-body">
-                  <h5 class="card-title">AirPods Max</h5>
-                  <p class="card-text">High-fidelity audio, ANC</p>
-                  <p class="product-price">$549.00</p>
-                  <p class="card-text">
-                    <small class="text-muted">4.8 (121 reviews)</small>
-                  </p>
-                  <button class="btn btn-outline-dark btn-cart">
-                    Add to Cart
-                  </button>
+        <?php
+        if (isset($latestArrivals) && count($latestArrivals) > 0) {
+          $chunks = array_chunk($latestArrivals, 3);
+          foreach ($chunks as $index => $chunk) {
+            $activeClass = ($index === 0) ? 'active' : '';
+        ?>
+            <div class="carousel-item <?= $activeClass ?>">
+              <div class="d-flex align-items-center">
+                <!-- Prev button -->
+                <button
+                  class="btn "
+                  type="button"
+                  data-bs-target="#latestCarousel"
+                  data-bs-slide="prev"
+                  style="min-width: 40px; height: 100%;">
+                  <span class="carousel-control-prev-icon" style="filter: invert(1);" aria-hidden="true"></span>
+                </button>
+
+                <!-- Product cards -->
+                <div class="row flex-grow-1">
+                  <?php foreach ($chunk as $latest) { ?>
+                    <div class="col-md-4">
+                      <div class="product-card card">
+                        <img src="<?= htmlspecialchars($latest['primary_image_url']) ?>" class="img-fluid" />
+                        <div class="card-body">
+                          <h5 class="card-title"><?= htmlspecialchars($latest['product_name']) ?></h5>
+                          <p class="card-text">Brand - <?= htmlspecialchars($latest['brand_name']) ?></p>
+                          <p class="card-text">Category - <?= htmlspecialchars($latest['category_name']) ?></p>
+                          <p class="product-price"><?= htmlspecialchars($latest['price']) ?></p>
+                        </div>
+                      </div>
+                    </div>
+                  <?php } ?>
                 </div>
+
+                <!-- Next button -->
+                <button
+                  class="btn "
+                  type="button"
+                  data-bs-target="#latestCarousel"
+                  data-bs-slide="next"
+                  style="min-width: 40px; height: 100%;">
+                  <span class="carousel-control-next-icon" style="filter: invert(1);" aria-hidden="true"></span>
+
+                </button>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="product-card card">
-                <img
-                  src="https://via.placeholder.com/300x220?text=Smart+Speaker"
-                  class="img-fluid"
-                  alt="Smart Bluetooth Speaker" />
-                <div class="card-body">
-                  <h5 class="card-title">Smart Bluetooth Speaker</h5>
-                  <p class="card-text">Voice assistant enabled</p>
-                  <p class="product-price">$129.00</p>
-                  <p class="card-text">
-                    <small class="text-muted">4.7 (201 reviews)</small>
-                  </p>
-                  <button class="btn btn-outline-dark btn-cart">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="product-card card">
-                <img
-                  src="https://via.placeholder.com/300x220?text=Smart+Watch"
-                  class="img-fluid"
-                  alt="Smart Fitness Watch" />
-                <div class="card-body">
-                  <h5 class="card-title">Smart Fitness Watch</h5>
-                  <p class="card-text">Heart rate, GPS, water resistant</p>
-                  <p class="product-price">$149.00</p>
-                  <p class="card-text">
-                    <small class="text-muted">4.6 (167 reviews)</small>
-                  </p>
-                  <button class="btn btn-outline-dark btn-cart">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="product-card card">
-                <img
-                  src="Image/AirPodsMax1.png"
-                  class="img-fluid"
-                  alt="Wireless Earbuds Pro" />
-                <div class="card-body">
-                  <h5 class="card-title">Wireless Earbuds Pro</h5>
-                  <p class="card-text">IPX7, ANC, wireless charging</p>
-                  <p class="product-price">$89.00</p>
-                  <p class="card-text">
-                    <small class="text-muted">4.4 (221 reviews)</small>
-                  </p>
-                  <button class="btn btn-outline-dark btn-cart">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="product-card card">
-                <img
-                  src="Image/AirPodsMax2.png"
-                  class="img-fluid"
-                  alt="Wireless Charger" />
-                <div class="card-body">
-                  <h5 class="card-title">Wireless Charger</h5>
-                  <p class="card-text">Fast charging, compact design</p>
-                  <p class="product-price">$39.00</p>
-                  <p class="card-text">
-                    <small class="text-muted">4.5 (89 reviews)</small>
-                  </p>
-                  <button class="btn btn-outline-dark btn-cart">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="product-card card">
-                <img
-                  src="Image/AirPodsMax1.png"
-                  class="img-fluid"
-                  alt="Smart Home Hub" />
-                <div class="card-body">
-                  <h5 class="card-title">Smart Home Hub</h5>
-                  <p class="card-text">Control your smart devices</p>
-                  <p class="product-price">$99.00</p>
-                  <p class="card-text">
-                    <small class="text-muted">4.3 (145 reviews)</small>
-                  </p>
-                  <button class="btn btn-outline-dark btn-cart">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php
+          }
+        }
+        ?>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#latestCarousel"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#latestCarousel"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+
     </div>
   </section>
 
@@ -487,14 +324,7 @@
 
   <!-- Bootstrap JS and Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Basic interactivity for Add to Cart buttons
-    document.querySelectorAll(".btn-cart").forEach((button) => {
-      button.addEventListener("click", () => {
-        alert("Added to cart!");
-      });
-    });
-  </script>
+
 </body>
 
 </html>

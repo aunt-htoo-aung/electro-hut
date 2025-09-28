@@ -35,11 +35,18 @@
             <a class="nav-link side-bar-nav" href="order.php">Order</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="category.php">Category</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="brand.php">Brand</a>
+        </li>
+        <!-- <li class="nav-item">
             <a class="nav-link side-bar-nav" href="user.php">User</a>
         </li>
         <li class="nav-item">
             <a class="nav-link side-bar-nav" href="admin.php">Admin Control</a>
-        </li>
+        </li> -->
+
     </ul>
 
     <div class="nav-item dropdown mt-auto ms-3">
@@ -69,9 +76,7 @@
     </div>
 </div>
 
-<div
-    class="d-none d-lg-flex flex-column flex-shrink-0 p-3 bg-light shadow"
-    style="width: 280px; max-height: 100vh; position: sticky; top: 0">
+<div class="d-none d-lg-flex flex-column flex-shrink-0 p-3 bg-light shadow sidebar-lg">
     <div class="offcanvas-header">
         <h3 class="offcanvas-title">⚡ ElectroHut</h3>
     </div>
@@ -87,11 +92,17 @@
             <a class="nav-link side-bar-nav" href="order.php">Order</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="category.php">Category</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link side-bar-nav" href="brand.php">Brand</a>
+        </li>
+        <!-- <li class="nav-item">
             <a class="nav-link side-bar-nav" href="user.php">User</a>
         </li>
         <li class="nav-item">
             <a class="nav-link side-bar-nav" href="admin.php">Admin Control</a>
-        </li>
+        </li> -->
     </ul>
 
     <div class="nav-item dropdown mt-auto ms-3">

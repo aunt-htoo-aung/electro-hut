@@ -36,9 +36,11 @@ require_once '../electro-hut-backend/product.php';
             Category
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Headphones</a></li>
-            <li><a class="dropdown-item" href="#">Speakers</a></li>
-            <li><a class="dropdown-item" href="#">Smartwatches</a></li>
+            <?php if (isset($categories)) {
+              foreach ($categories as $category) { ?>
+                <li><a class="dropdown-item <?= $selectedCategory === $category['category_name'] ? 'active' : '' ?>" href="?category=<?= $category['category_name'] ?>"><?= $category['category_name'] ?></a></li>
+            <?php }
+            } ?>
           </ul>
         </div>
 
@@ -47,8 +49,8 @@ require_once '../electro-hut-backend/product.php';
             Price
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Low to High</a></li>
-            <li><a class="dropdown-item" href="#">High to Low</a></li>
+            <li><a class="dropdown-item <?= $sort == 'price_asc' ? 'active' : '' ?>" href="?sort=price_asc">Low to High</a></li>
+            <li><a class="dropdown-item <?= $sort == 'price_desc' ? 'active' : '' ?>" href="?sort=price_desc">High to Low</a></li>
           </ul>
         </div>
 
@@ -57,9 +59,11 @@ require_once '../electro-hut-backend/product.php';
             Brand
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Sony</a></li>
-            <li><a class="dropdown-item" href="#">Apple</a></li>
-            <li><a class="dropdown-item" href="#">Samsung</a></li>
+            <?php if (isset($brands)) {
+              foreach ($brands as $brand) { ?>
+                <li><a class="dropdown-item <?= $selectedBrand === $brand['brand_name'] ? 'active' : '' ?>" href="?brand=<?= $brand['brand_name'] ?>"><?= $brand['brand_name'] ?></a></li>
+            <?php }
+            } ?>
           </ul>
         </div>
       </div>
@@ -67,7 +71,7 @@ require_once '../electro-hut-backend/product.php';
     </div>
 
     <!-- Title -->
-    <h4 class="mb-4">Latest Electronic Gadgets</h4>
+    <h4 class="mb-4"><?= $heading ?></h4>
 
     <!-- Product Grid -->
     <div class="row g-4">

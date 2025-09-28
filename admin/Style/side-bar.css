@@ -1,10 +1,22 @@
+/* Sidebar navigation link hover */
 .side-bar-nav:hover {
     color: white;
     background-color: #5E5DF0;
 }
 
-.nav-item{
+/* Sidebar nav item padding and font */
+.nav-item {
     padding: 5px 0;
     font-size: 18px;
 }
 
+/* Make sidebar fixed height and scrollable on lg and up */
+@media (min-width: 992px) {
+    .sidebar-lg {
+        height: 100vh;          /* full viewport height */
+        position: sticky;       /* sticky position */
+        top: 0;                 /* stick to top */
+        overflow-y: auto;       /* scroll inside if needed */
+        width: 280px;
+    }
+}

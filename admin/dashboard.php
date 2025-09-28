@@ -1,3 +1,6 @@
+<?php
+require_once '../../electro-hut-backend/dashboard.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +42,7 @@
                   <h6>Total Products</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">500</h4>
+                  <h4 class="card-title"><?= $total_stock_products['total_products']  ?></h4>
                   <small class="card-text">
                     Total number of products in the store.
                   </small>
@@ -52,7 +55,7 @@
               <div class="card text-white bg-success">
                 <div class="card-header">Active Stock Products</div>
                 <div class="card-body">
-                  <h4 class="card-title">450</h4>
+                  <h4 class="card-title"><?= $total_stock_products['active_stock']  ?></h4>
                   <p class="card-text">
                     Products that are available in stock.
                   </p>
@@ -65,7 +68,7 @@
               <div class="card text-white bg-warning">
                 <div class="card-header">Inactive Stock Products</div>
                 <div class="card-body">
-                  <h4 class="card-title">50</h4>
+                  <h4 class="card-title"><?= $total_stock_products['inactive_stock']  ?></h4>
                   <p class="card-text">Products that are out of stock.</p>
                 </div>
               </div>
@@ -76,9 +79,9 @@
               <div class="card text-white bg-danger">
                 <div class="card-header">Low Stock Alert</div>
                 <div class="card-body">
-                  <h4 class="card-title">20</h4>
+                  <h4 class="card-title"><?= $total_stock_products['low_stock']  ?></h4>
                   <p class="card-text">
-                    Products with stock below threshold.
+                    Products with stock below 10.
                   </p>
                 </div>
               </div>
@@ -86,7 +89,7 @@
           </div>
 
           <!-- Pending Orders and Top Selling Products -->
-          <div class="card">
+          <div class="card mt-4">
             <div class="card-header">
               <i class="fas fa-box icon"></i> Pending Orders
             </div>
@@ -96,7 +99,7 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Order ID</th>
-                    <th scope="col">User ID</th>
+                    <th scope="col">User Name</th>
                     <th scope="col">Order Date</th>
                     <th scope="col">Total Amount</th>
                     <th scope="col">Item Count</th>
@@ -104,65 +107,37 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Example Pending Order 1 -->
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>101</td>
-                    <td>50</td>
-                    <td>2025-09-15</td>
-                    <td>$120.50</td>
-                    <td>3</td>
-                    <td>
-                      <button class="btn btn-success btn-sm">
-                        Accept
-                      </button>
-                      <button class="btn btn-danger btn-sm">
-                        Cancel
-                      </button>
-                    </td>
-                  </tr>
-                  <!-- Example Pending Order 2 -->
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>102</td>
-                    <td>51</td>
-                    <td>2025-09-14</td>
-                    <td>$75.00</td>
-                    <td>2</td>
-                    <td>
-                      <button class="btn btn-success btn-sm">
-                        Accept
-                      </button>
-                      <button class="btn btn-danger btn-sm">
-                        Cancel
-                      </button>
-                    </td>
-                  </tr>
-                  <!-- Example Pending Order 3 -->
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>103</td>
-                    <td>52</td>
-                    <td>2025-09-13</td>
-                    <td>$50.00</td>
-                    <td>1</td>
-                    <td>
-                      <button class="btn btn-success btn-sm">
-                        Accept
-                      </button>
-                      <button class="btn btn-danger btn-sm">
-                        Cancel
-                      </button>
-                    </td>
-                  </tr>
+                  <?php
+                  $count = 1;
+                  foreach ($pendingOrders as $order): ?>
+                    <tr>
+                      <th scope="row"><?= $count++ ?></th>
+                      <td><?= htmlspecialchars($order['order_id']) ?></td>
+                      <td><?= htmlspecialchars($order['user_name']) ?></td>
+                      <td><?= htmlspecialchars($order['order_date']) ?></td>
+                      <td>$<?= number_format($order['total_amount'], 2) ?></td>
+                      <td><?= (int)$order['item_count'] ?></td>
+                      <td>
+                        <form method="post" style="display:inline;">
+                          <input type="hidden" name="order_id" value="<?= $order['order_id'] ?>">
+                          <button type="submit" name="status" value="Accepted" class="btn btn-success btn-sm">Accept</button>
+                        </form>
+                        <form method="post" style="display:inline;">
+                          <input type="hidden" name="order_id" value="<?= $order['order_id'] ?>">
+                          <button type="submit" name="status" value="Cancelled" class="btn btn-danger btn-sm">Cancel</button>
+                        </form>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
+
             </div>
           </div>
 
 
           <!-- Top Selling Products Table -->
-          <div class="card">
+          <div class="card mt-4">
             <div class="card-header">
               <i class="fas fa-chart-line icon"></i> Top Selling Products
             </div>
@@ -170,8 +145,8 @@
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Product</th>
+                    <th scope="col">ID</th>
+                    <th scope="col" colspan="2" class="text-center">Product</th>
                     <th scope="col">Brand</th>
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
@@ -181,54 +156,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Example Top Selling Product 1 -->
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>
-                      <img
-                        src="https://via.placeholder.com/50"
-                        alt="Product Image" />
-                      Airpod 1
-                    </td>
-                    <td>Apple</td>
-                    <td>Electronics</td>
-                    <td>$200.00</td>
-                    <td>500</td>
-                    <td>$100,000.00</td>
-                    <td>200</td>
-                  </tr>
-                  <!-- Example Top Selling Product 2 -->
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>
-                      <img
-                        src="https://via.placeholder.com/50"
-                        alt="Product Image" />
-                      Laptop X
-                    </td>
-                    <td>BrandX</td>
-                    <td>Computers</td>
-                    <td>$1000.00</td>
-                    <td>350</td>
-                    <td>$350,000.00</td>
-                    <td>150</td>
-                  </tr>
-                  <!-- Example Top Selling Product 3 -->
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>
-                      <img
-                        src="https://via.placeholder.com/50"
-                        alt="Product Image" />
-                      Smartwatch
-                    </td>
-                    <td>BrandY</td>
-                    <td>Accessories</td>
-                    <td>$150.00</td>
-                    <td>300</td>
-                    <td>$45,000.00</td>
-                    <td>50</td>
-                  </tr>
+                  <?php if (isset($top_selling_products)) {
+                    foreach ($top_selling_products as $top) {
+                  ?>
+                      <tr>
+                        <th scope="row"><?= $top['product_id'] ?></th>
+                        <td>
+                          <img
+                            src="../<?= $top['image_url'] ?>" style="max-width: 100px; max-height: 100px" />
+                        </td>
+                        <td><?= $top['product_name'] ?></td>
+                        <td><?= $top['brand_name'] ?></td>
+                        <td><?= $top['category_name'] ?></td>
+                        <td><?= $top['price'] ?></td>
+                        <td><?= $top['sold_quantity'] ?></td>
+                        <td><?= $top['total_revenue'] ?></td>
+                        <td><?= $top['stock_left'] ?></td>
+                      </tr>
+                  <?php
+                    }
+                  } ?>
+
+
                 </tbody>
               </table>
             </div>

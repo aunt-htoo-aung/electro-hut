@@ -52,18 +52,26 @@ require_once '../../electro-hut-backend/product.php'
                       <label class="form-label" for="category">Category</label>
                       <select class="form-select" id="category" name="category">
                         <option selected>Select Category</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <?php
+                        if (isset($categories)) {
+                          foreach ($categories as $category) {
+                            echo "<option value='$category[category_id]'>$category[category_name]</option>";
+                          }
+                        }
+                        ?>
                       </select>
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="brand">Brand</label>
                       <select class="form-select" id="brand" name="brand">
                         <option selected>Select Brand</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <?php
+                        if (isset($brands)) {
+                          foreach ($brands as $brand) {
+                            echo "<option value='$brand[brand_id]'>$brand[brand_name]</option>";
+                          }
+                        }
+                        ?>
                       </select>
                     </div>
                     <div class="mb-3">

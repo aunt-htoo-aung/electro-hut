@@ -49,6 +49,9 @@
                         <td><?= $order['status'] ?></td>
                         <td><?= $order['total_amount'] ?></td>
                         <td><?= $order['item_count'] ?></td>
+                        <td>
+                          <a class='btn btn-primary btn-sm w-100 m-1' href='orderDetails.php?id=<?= $order['order_id'] ?>'>Details</a>
+                        </td>
                       </tr>
                   <?php }
                   } ?>
