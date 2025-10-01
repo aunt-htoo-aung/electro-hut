@@ -70,7 +70,7 @@
                      </a>
                      <ul class="dropdown-menu dropdown-menu-end mt-2">
                          <li>
-                             <a class="dropdown-item" href="profile.php"><i class="bi bi-person me-2"></i>Profile</a>
+                             <a class="dropdown-item" href="profile.php?id=<?= $_SESSION['user_id'] ?>"><i class="bi bi-person me-2"></i>Profile</a>
                          </li>
                          <li>
                              <a class="dropdown-item my-1" href="cart.php"><i class="bi bi-cart me-2"></i>Cart</a>

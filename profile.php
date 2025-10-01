@@ -1,3 +1,6 @@
+<?php
+require_once '../electro-hut-backend/user.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,11 +75,11 @@
               <div class="row">
                 <div class="col">
                   <label for="first-name" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="first-name" />
+                  <input type="text" class="form-control" id="first-name" value="<?= $user_info['first_name'] ?>" />
                 </div>
                 <div class="col">
                   <label for="last-name" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="last-name" />
+                  <input type="text" class="form-control" id="last-name" value="<?= $user_info['last_name'] ?>" />
                 </div>
               </div>
               <div class="mb-3">
@@ -85,11 +88,11 @@
                   type="email"
                   class="form-control"
                   id="email"
-                  required />
+                  required value="<?= $user_info['email'] ?>" />
               </div>
               <div class="mb-3">
                 <label for="phone" class="form-label">Phone</label>
-                <input type="text" class="form-control" id="phone" required />
+                <input type="text" class="form-control" id="phone" required value="<?= $user_info['phone'] ?>" />
               </div>
               <div class="row mb-3">
                 <div class="col">
@@ -106,7 +109,7 @@
                     type="date"
                     class="form-control datepicker"
                     id="dob"
-                    placeholder="Select your date of birth" />
+                    placeholder="Select your date of birth" value="<?= $user_info['date_of_birth'] ?>" />
                 </div>
               </div>
               <div class="text-end my-4">
