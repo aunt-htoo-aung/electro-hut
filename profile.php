@@ -71,15 +71,15 @@ require_once '../electro-hut-backend/user.php';
             role="tabpanel"
             aria-labelledby="profile-details-tab">
             <h5 class="p-3 pb-0 m-2">Edit Profile Details</h5>
-            <form class="px-4">
+            <form class="px-4" method="post">
               <div class="row">
                 <div class="col">
                   <label for="first-name" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="first-name" value="<?= $user_info['first_name'] ?>" />
+                  <input type="text" class="form-control" id="first-name" name="first_name" value="<?= $user_info['first_name'] ?>" />
                 </div>
                 <div class="col">
                   <label for="last-name" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="last-name" value="<?= $user_info['last_name'] ?>" />
+                  <input type="text" class="form-control" id="last-name" name="last_name" value="<?= $user_info['last_name'] ?>" />
                 </div>
               </div>
               <div class="mb-3">
@@ -87,20 +87,20 @@ require_once '../electro-hut-backend/user.php';
                 <input
                   type="email"
                   class="form-control"
-                  id="email"
+                  id="email" name="email"
                   required value="<?= $user_info['email'] ?>" />
               </div>
               <div class="mb-3">
                 <label for="phone" class="form-label">Phone</label>
-                <input type="text" class="form-control" id="phone" required value="<?= $user_info['phone'] ?>" />
+                <input type="text" class="form-control" id="phone" required name="phone" value="<?= $user_info['phone'] ?>" />
               </div>
               <div class="row mb-3">
                 <div class="col">
                   <label for="gender-select" class="form-label">Gender</label>
-                  <select class="form-select" id="gender-select" required>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="others" selected>Others</option>
+                  <select class="form-select" id="gender-select" name="gender" required>
+                    <option value="male" <?php echo ($user_info['gender'] == 'male') ? 'selected' : ''; ?>>Male</option>
+                    <option value="female" <?php echo ($user_info['gender'] == 'female') ? 'selected' : ''; ?>>Female</option>
+                    <option value="others" <?php echo ($user_info['gender'] == 'others') ? 'selected' : ''; ?>>Others</option>
                   </select>
                 </div>
                 <div class="col">
@@ -109,14 +109,14 @@ require_once '../electro-hut-backend/user.php';
                     type="date"
                     class="form-control datepicker"
                     id="dob"
-                    placeholder="Select your date of birth" value="<?= $user_info['date_of_birth'] ?>" />
+                    placeholder="Select your date of birth" name="date_of_birth" value="<?= $user_info['date_of_birth'] ?>" />
                 </div>
               </div>
               <div class="text-end my-4">
                 <button type="submit" class="btn btn-subtle me-2">
                   Cancel
                 </button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="update_profile_details">Submit</button>
               </div>
             </form>
           </div>
